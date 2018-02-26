@@ -5,9 +5,9 @@
 """
 concatenate_fastq_files.py
 
-Copyright (C) 2016 Miguel Machado <mpmachado@medicina.ulisboa.pt>
+Copyright (C) 2018 Miguel Machado <mpmachado@medicina.ulisboa.pt>
 
-Last modified: October 04, 2016
+Last modified: February 02, 2018
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -452,7 +452,10 @@ def run_concatenate_fastq_files(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(prog='python concatenate_fastq_files.py',
+    if sys.version_info[0] < 3:
+        sys.exit('Must be using Python 3. Try calling "python3 concatenate_fastq_files.py"')
+
+    parser = argparse.ArgumentParser(prog='python3 concatenate_fastq_files.py',
                                      description="Concatenate compressed fastq files from the same sample",
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--version', help='Version information', action='version', version=str('%(prog)s v' + version))
