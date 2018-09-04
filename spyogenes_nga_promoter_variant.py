@@ -304,7 +304,7 @@ def main():
                                          help='Path to the directory where the information will be stored',
                                          required=False, default='.')
     parser_optional_general.add_argument('-t', '--type', choices=['nucl', 'prot'], type=str, metavar='nucl',
-                                         help='Blast DB type (available options: %(choices)s)')
+                                         help='Blast DB type (available options: %(choices)s)', default='nucl')
 
     args = parser.parse_args()
 
@@ -371,7 +371,7 @@ def main():
                 if hsp.align_length / float(query_length) * 100 >= min_gene_coverage:
                     var_found = None
                     for var_seq, var_id in variants.items():
-                        if var_seq in hsp.query:
+                        if var_seq in hsp.sbjct:
                             if hsp.query.find(var_seq) + len(var_seq) + 1 < 45:
                                 var_found = var_id
 
