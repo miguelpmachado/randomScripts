@@ -35,7 +35,7 @@ version = '0.1'
 
 def main():
     if sys.version_info[0] < 3:
-        sys.exit('Must be using Python 3. Try calling "python3 spyogenes_nga_promoter_variant.py"')
+        sys.exit('Must be using Python 3. Try calling "python3 genbank_2_embl.py"')
 
     parser = argparse.ArgumentParser(prog='genbank_2_embl.py',
                                      description='Converts a genbank file into a embl file',
