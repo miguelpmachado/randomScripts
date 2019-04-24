@@ -5,9 +5,9 @@
 """
 concatenate_fastq_files.py
 
-Copyright (C) 2018 Miguel Machado <mpmachado@medicina.ulisboa.pt>
+Copyright (C) 2019 Miguel Machado <miguel.machado@insa.min-saude.pt>
 
-Last modified: February 02, 2018
+Last modified: April 24, 2019
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ import zipfile
 # import shlex
 
 
-version = '0.2'
+version = '0.2.1'
 
 
 def check_create_directory(directory):
@@ -470,13 +470,13 @@ def main():
 
     parser_optional = parser.add_argument_group('Facultative options')
     parser_optional.add_argument('-s', '--sampleNameDelimiter', type=str, metavar='_',
-                                 help='First left character in sample name delimiting sample name and other sequencing'
+                                 help='First left character in sample name delimiting sample name from other sequencing'
                                       ' information',
                                  required=False, default='_')
     parser_optional.add_argument('-j', '--threads', metavar='N', type=int, help='Number of threads to be used',
                                  required=False, default=1)
     parser.add_argument('--fastq_ends', nargs=2, type=str, metavar=('_R1_001.fastq.gz', '_R2_001.fastq.gz'),
-                        help='By default, ena_submission.py searches for pair-end fastq files ending with'
+                        help='By default, concatenate_fastq_files searches for pair-end fastq files ending with'
                              ' "_R1_001.fastq.gz" and "_R2_001.fastq.gz". If your fastq files end differently, you can'
                              ' provide two strings containing the end of fastq files names (for example, "_1.fastq.gz"'
                              ' and "_2.fastq.gz")',
